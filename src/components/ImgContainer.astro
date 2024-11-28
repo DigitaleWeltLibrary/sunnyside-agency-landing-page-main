@@ -1,0 +1,21 @@
+<article>
+  <img src="/desktop/image-gallery-milkbottles.jpg" alt="milkbottles" />
+  <img src="/desktop/image-gallery-orange.jpg" alt="orange" />
+  <img src="/desktop/image-gallery-cone.jpg" alt="cone" />
+  <img src="/desktop/image-gallery-sugarcubes.jpg" alt="sugarcubes" />
+</article>
+
+<style lang="scss">
+  article {
+    margin-top: 2rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    @media (width > 600px) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+    img {
+      object-fit: cover;
+      width: 100%;
+    }
+  }
+</style>

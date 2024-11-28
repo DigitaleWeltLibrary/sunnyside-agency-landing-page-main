@@ -1,0 +1,88 @@
+---
+const user = [
+  {
+    img: "image-emily.jpg",
+    text: " We put our trust in Sunnyside and they delivered, making sure our needs were met and deadlines were always hit.",
+    name: "    Emily R.",
+    position: " Marketing Director",
+  },
+  {
+    img: "image-jennie.jpg",
+    text: "    Sunnyside’s enthusiasm coupled with their keen interest in our brand’s success made it a satisfying and enjoyable experience.",
+    name: "  Thomas S.",
+    position: " Chief Operating Officer",
+  },
+  {
+    img: "image-thomas.jpg",
+    text: " Incredible end result! Our sales increased over 400% when we worked with Sunnyside. Highly recommended!",
+    name: " Jennie F.",
+    position: " Business Owner",
+  },
+];
+---
+
+<article>
+  <h2>Client testimonials</h2>
+
+  <article>
+    {
+      user.map(({ img, text, name, position }) => {
+        return (
+          <section>
+            <img src={"/" + img} alt={name.trim()} />
+            <p class="text">{text.trim()}</p>
+            <p class="name">{name.trim()}</p>
+            <p class="position">{position.trim()}</p>
+          </section>
+        );
+      })
+    }
+  </article>
+</article>
+
+<style lang="scss">
+  article {
+    h2 {
+      color: hsl(210, 4%, 67%);
+      text-transform: uppercase;
+      text-align: center;
+      margin-block: 3rem 2rem;
+    }
+    article {
+      section {
+        img {
+          aspect-ratio: 1/1;
+          border-radius: 50%;
+          display: block;
+          margin: 1rem auto;
+        }
+        p {
+          text-align: center;
+          margin: 0;
+          &.text {
+            text-wrap: balance;
+            font-size: 1.25rem;
+          }
+          &.name {
+            font-weight: bolder;
+            font-size: 1.5rem;
+            margin-block: 2rem 1rem;
+          }
+          &.position {
+            color: hsl(210, 4%, 67%);
+          }
+        }
+        & + section {
+          margin-top: 2.5rem;
+        }
+      }
+      @media (width > 800px) {
+        display: grid;
+        grid-template-columns: repeat(3, min(33%, 500px));
+        section + section {
+          margin-top: 0;
+        }
+      }
+    }
+  }
+</style>
